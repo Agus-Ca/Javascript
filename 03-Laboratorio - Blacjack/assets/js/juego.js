@@ -31,7 +31,15 @@ const askForCard = () => {
     if ( deck.length === 0 ) throw `There are no more cards in deck`;
     
     const card = deck.pop();
+    return card;
+}
+
+const cardValue = ( card ) => {
+    const value = card.substring( 0, card.length - 1 );
+    return ( isNaN(value) ) ? 
+            ( value === 'A' ) ? 11 : 10
+            : value * 1;
 }
 
 createDeck();
-askForCard();
+cardValue(askForCard());
