@@ -18,6 +18,7 @@ let playerPoints   = 0,
 // HTML references
 const btnAskForCard = document.querySelector('#btnAskForCard');
 const btnStopGame   = document.querySelector('#btnStopGame');
+const btnNewGame    = document.querySelector('#btnNewGame');
 
 const points           = document.querySelectorAll('small');
 let playerPointsHTML   = points[0];
@@ -29,6 +30,8 @@ const divComputerCards = document.querySelector('#computer-cards');
 
 // Functions:
 const createDeck = () => {
+    deck = [];
+
     for ( let i = 2; i <= 10; i++ ) {
         for ( let cardType of cardTypes )
         deck.push( i +cardType );
@@ -70,6 +73,18 @@ const computerTurn = ( ) => {
         imgCard.classList.add('carta');
         divComputerCards.append( imgCard );
     } while ( (computerPoints < playerPoints) && (playerPoints <= 21) );
+
+    setTimeout(() => {
+        let mensaje = '';
+        if ( playerPoints === computerPoints ) {
+            mensaje = 'We have a draw! :c'
+        } else if ( (playerPoints > 21) || ((playerPoints < computerPoints) && (computerPoints < 21)) ) {
+            mensaje = 'The computer wins. Better luck next time!';
+        } else if ( computerPoints > 21 ) {
+            mensaje = `You've won the game! Congratulations!!!`;
+        }
+        alert( mensaje );
+    }, 10);
 }
 
 
@@ -107,4 +122,22 @@ btnStopGame.addEventListener('click', () => {
     btnStopGame.disabled = true;
 
     computerTurn();
+});
+
+btnNewGame.addEventListener('click', () => {
+    deck = createDeck();
+
+    playerPoints   = 0;
+    computerPoints = 0;
+
+    playerPointsHTML.innerText   = 0;
+    computerPointsHTML.innerText = 0;
+
+    divPlayerCards.innerHTML   = '';
+    divComputerCards.innerHTML = '';
+
+    btnAskForCard.disabled = false;
+    btnStopGame.disabled = false;
+
+    console.clear();
 });
