@@ -84,7 +84,7 @@ const computerTurn = ( ) => {
             mensaje = `You've won the game! Congratulations!!!`;
         }
         alert( mensaje );
-    }, 10);
+    }, 50);
 }
 
 
