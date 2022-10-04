@@ -21,10 +21,10 @@
             <button id="btnNewGame" class="btn btn-danger">
                 Nuevo juego
             </button>
-            <button id="btnAskForCard" class="btn btn-primary">
+            <button id="btnAskForCard" disabled="disabled" class="btn btn-primary">
                 Pedir carta
             </button>
-            <button id="btnStopGame" class="btn btn-primary">
+            <button id="btnStopGame" disabled="disabled" class="btn btn-primary">
                 Detener
             </button>
         </div>
@@ -35,7 +35,7 @@
             <h1>
                 Jugador 1 - <small>0</small>
             </h1>
-            <div id="player-cards"></div>
+            <div id="player-cards" class="divCards"></div>
         </div>
     </div>
 
@@ -44,12 +44,15 @@
             <h1>
                 Computadora - <small>0</small>
             </h1>
-            <div id="computer-cards"></div>
+            <div id="computer-cards"  class="divCards"></div>
         </div>
     </div>
 
     <script src="./assets/js/underscore-min.js"></script>
     <script src="./assets/js/juego.js"></script>
+    <script>
+        module.newGame();
+    </script>
 
 </body>
 </html>
