@@ -20,7 +20,7 @@ export const buscarHeroe = ( id ) => {
         if ( heroe ) {
             resolve( heroe );
         } else {
-            reject();
+            reject(`No existe el heroe con el id ${id}`);
         }
     });
 }

@@ -31,7 +31,12 @@ console.warn('---- Promesas ----');
 
 Promise.all([ buscarHeroe(heroeId), buscarHeroe(heroeId2) ])
     .then( ([heroe1, heroe2]) => {
+        // esto se ejecuta si ninguna promesa falla
         console.info(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision.`);
+}).catch( err => {
+    alert(err);
+}).finally( () => {
+    console.log('Se termino el promise.all');
 });
 
 
