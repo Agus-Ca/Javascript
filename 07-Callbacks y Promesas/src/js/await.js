@@ -22,3 +22,23 @@ export const obtenerHeroesArr = async () => {
 
     // return await Promise.all( heroesArr );
 };
+
+export const obtenerHeroeAwait = async ( id ) => {
+
+    try {
+
+        const heroe = await buscarHeroeAsync( id );
+        return heroe;
+
+    } catch ( err ) {
+        //si aca pongo un throw en el que lo llama entra por el .catch
+        //pero so aca pongo un return, en el que lo llama entra por el .then
+        console.log('CATCH!!!');
+        //throw err ;
+        return {
+            nombre: 'sin nombre',
+            poder: 'sin poder'
+        }
+    }
+
+};
