@@ -1,21 +1,24 @@
-import { buscarHeroeAsync } from "./promesas";
+import { buscarHeroeAsync, buscarHeroe2 } from "./promesas";
 
 
 
 const heroesIds = [ 'capi', 'iron', 'spider' ];
 
 export const obtenerHeroesArr = async () => {
-    const heroesArr = [];
+    
+    return await Promise.all( heroesIds.map( buscarHeroe2 ) );
 
-    for ( const id of heroesIds ) {
-        const heroe = await buscarHeroeAsync( id );
-        heroesArr.push( heroe );
-    }
+    // const heroesArr = [];
 
-    // setTimeout(() => {
-    //    console.log('ObtenerHeroes');
-    //    console.table( heroesArr ); 
-    // }, 1000);
+    // for ( const id of heroesIds ) {
+    //     //const heroe = await buscarHeroeAsync( id );
+    //     heroesArr.push( buscarHeroe2( id ) );
+    // }
 
-    return heroesArr;
+    // // setTimeout(() => {
+    // //    console.log('ObtenerHeroes');
+    // //    console.table( heroesArr ); 
+    // // }, 1000);
+
+    // return await Promise.all( heroesArr );
 };
