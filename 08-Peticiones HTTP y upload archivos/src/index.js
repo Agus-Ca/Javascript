@@ -1,5 +1,8 @@
-import { init } from "./js/chistes-page";
+// import { init } from "./js/chistes-page";
+
+import { obtenerUsuarios } from "./js/http-provider";
 
 
 
-init();
+// init();
+obtenerUsuarios();
