@@ -1,6 +1,5 @@
-import { obtenerChiste } from './js/http-provider';
-import './styles.css';
+import { init } from "./js/chistes-page";
 
 
 
-obtenerChiste().then( console.log );
+init();
