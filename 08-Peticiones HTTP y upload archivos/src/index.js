@@ -1,3 +1,4 @@
+import { init } from './js/archivos-page';
 import * as CRUD from './js/crud-provider';
 
 
@@ -7,4 +8,6 @@ import * as CRUD from './js/crud-provider';
 
 // CRUD.actualizarUsuario( 1, { name: 'Melisa', job: 'Developer'}).then( console.log );
 
-CRUD.borrarUsuario( 1 ).then( console.log);
+// CRUD.borrarUsuario( 1 ).then( console.log);
+
+init();
